@@ -1,4 +1,6 @@
 # Logs
+# visual Studio
+.vs
 logs
 *.log
 npm-debug.log*
