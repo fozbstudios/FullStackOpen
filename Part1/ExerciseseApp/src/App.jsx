@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 const Total = (props) => {
-    return( <p>Number of exercises {props.total}</p>)
+    return (<p>Number of exercises {props.total}</p>)
 }
 const Header = (props) => {
     return (<div>
@@ -8,11 +9,18 @@ const Header = (props) => {
     </div>)
 }
 const Content = (props) => {
-    return(
-           props.parts.map(function(part,index){
-               return <p key={index}>{part.name} {part.count}</p>;
-                      })
+    return (
+        //I would hae used map here again but it looks like the turoial wants individual p tags
+        <>
+            <Part info={props.parts[0]} />
+            <Part info={props.parts[1]} />
+            <Part info={props.parts[2]} />
+        </>
         )
+
+}
+const Part = (props) => {
+    return <p>{props.info.name} {props.info.count}</p>
 
 }
 const App = () => {
@@ -28,7 +36,7 @@ const App = () => {
         <div>
             <Header name={course} />
             <Content parts={[{ name: part1, count: exercises1 }, { name: part2, count: exercises2 }, { name: part3, count: exercises3 }]} />
-            <Total total={exercises1+exercises2+exercises3} />
+            <Total total={exercises1 + exercises2 + exercises3} />
         </div>
     )
 }
