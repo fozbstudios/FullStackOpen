@@ -7,7 +7,10 @@
   "type": "chrome",
   "request": "launch",
   "url": "http://localhost:5173",
-  "webRoot": "D:\\FullStackOpen\\Part1\\tutorial"
+  "webRoot": "D:\\FullStackOpen\\Part1\\tutorial",
+  "runtimeArgs": [
+    " --auto-open-devtools-for-tabs"
+  ]
 }</LaunchJsonTarget>
   </PropertyGroup>
 </Project>
