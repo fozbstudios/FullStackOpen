@@ -1,31 +1,25 @@
-type Person = {
-    name: string
-    age: number
-}
-function Hello(props: Person) {
-    return (
-        <div>
-            <p>Hello {props.name} you are {props.age}</p>
-        </div>
-    )
-}
-function App() {
-    return (
-        <>
-            <h1>Greetings</h1>
-            <Hello name='Joe' age={43} />
-            <Hello name='Tom' age={53} />
-            <Hello name='Nick' age={68} />
-            <Footer />
-        </>
-    )
-}
-function Footer() {
-    return (
-        <div>
-            greeting app created by <a href='https://github.com/fozbstudios'>fozbstudios</a>
-        </div>
-    )
-}
+import { useState } from "react"
 
+const App = () => {
+    const [counter, setCounter] = useState(0)
+
+
+    const increaseByOne = () => setCounter(counter + 1)
+
+    const setToZero = () => setCounter(0)
+
+    return (
+        <div>
+            <div>{counter}</div>
+
+            <button onClick={increaseByOne}>
+                plus
+            </button>
+
+            <button onClick={setToZero}>
+                zero
+            </button>
+        </div>
+    )
+}
 export default App
