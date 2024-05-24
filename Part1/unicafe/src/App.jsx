@@ -16,20 +16,21 @@ function FeedbackButtons({good,setGood,neutral,setNeutral,bad,setBad}) {
     <Incrementer name='bad' get={bad} set={setBad}/></>)
 }
 function StatisticLine({name,val}) {
- return <p>{name} {val}</p> 
+ return <tr><td>{name} </td><td>{val}</td></tr> 
 }
 function Statistics({good,neutral,bad}) {
   let content= <p>No Feedback Given</p>
   const total=good+neutral+bad
   if (total>0) {
-      content=(<>
+      content=<table><tbody>
     <StatisticLine name='good' val={good}/>
     <StatisticLine name='neutral' val={neutral}/>
     <StatisticLine name='bad' val={bad}/>
     <StatisticLine name='all' val={good+neutral+bad}/>
     <StatisticLine name='average' val={(good-bad)/total}/>
     <StatisticLine name='positive' val={`${good/total*100}%`}/>
-    </>)}
+      </tbody></table>
+    }
   return(
     <>
     <h2>statistics</h2>
@@ -43,7 +44,7 @@ function App() {
   const [bad, setBad] = useState(0)
   return (
     <>
-        <FeedbackButtons {...{good,setGood,neutral,setNeutral,bad,setBad}}/>
+        <FeedbackButtons {...{good,setBad,neutral,setNeutral,bad,setGood}}/>
         <Statistics {... {good,bad,neutral}}/>
     </>
   )
